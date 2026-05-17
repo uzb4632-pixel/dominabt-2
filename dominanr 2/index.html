@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dominant Sayram - Avtomobil Aksessuarlar</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#E63946;--dark:#0a0a0f;--darker:#050508;--card:#111118;--card2:#16161f;
+  --text:#f0f0f5;--muted:#888899;--border:#222233;--gold:#ffd700;
+}
+body{font-family:'Montserrat',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--darker)}::-webkit-scrollbar-thumb{background:var(--red);border-radius:3px}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(5,5,8,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1400px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-links{display:flex;gap:8px}
+.nav-link{color:var(--muted);text-decoration:none;padding:8px 16px;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:6px;transition:all .3s;position:relative}
+.nav-link:hover,.nav-link.active{color:var(--text);background:rgba(230,57,70,.1)}
+.nav-link.active::after{content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:20px;height:2px;background:var(--red);border-radius:2px}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.social-links{display:flex;gap:10px}
+.social-btn{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s;font-size:15px;border:1px solid var(--border)}
+.social-btn.tg{color:#2CA5E0;background:rgba(44,165,224,.1)}.social-btn.tg:hover{background:rgba(44,165,224,.25)}
+.social-btn.ig{color:#E1306C;background:rgba(225,48,108,.1)}.social-btn.ig:hover{background:rgba(225,48,108,.25)}
+.call-btn{background:var(--red);color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;transition:all .3s;white-space:nowrap}
+.call-btn:hover{background:#c0303c;transform:translateY(-1px)}
+.admin-nav-btn{background:rgba(255,255,255,.06);border:1px solid var(--border);color:var(--muted);padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .3s}
+.admin-nav-btn:hover{border-color:var(--red);color:var(--red)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(5,5,8,.98);border-bottom:1px solid var(--border);padding:20px 24px;z-index:999;flex-direction:column;gap:8px}
+.mobile-menu.open{display:flex}
+#loader{position:fixed;inset:0;background:var(--darker);z-index:9999;display:flex;align-items:center;justify-content:center;transition:all .5s}
+#loader.hide{opacity:0;pointer-events:none}
+.loader-logo{font-family:'Bebas Neue',cursive;font-size:48px;letter-spacing:4px;color:var(--red);animation:loaderAnim 1s ease-in-out infinite alternate}
+@keyframes loaderAnim{from{opacity:.3;transform:scale(.95)}to{opacity:1;transform:scale(1.05)}}
+#hero{height:100vh;min-height:700px;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--darker) 0%,#0d0d1a 50%,var(--darker) 100%)}
+.hero-lines{position:absolute;inset:0;overflow:hidden;opacity:.15}
+.hero-line{position:absolute;height:1px;background:linear-gradient(90deg,transparent,var(--red),transparent);animation:lineScan 4s ease-in-out infinite}
+.hero-line:nth-child(1){top:20%;width:80%;left:10%;animation-delay:0s}
+.hero-line:nth-child(2){top:40%;width:60%;left:20%;animation-delay:1.3s}
+.hero-line:nth-child(3){top:70%;width:90%;left:5%;animation-delay:2.6s}
+@keyframes lineScan{0%,100%{opacity:0;transform:scaleX(0)}50%{opacity:1;transform:scaleX(1)}}
+.hero-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(230,57,70,.15) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.hero-content{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(230,57,70,.1);border:1px solid rgba(230,57,70,.3);color:var(--red);padding:8px 16px;border-radius:30px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
+.hero-tag::before{content:'';width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-title{font-family:'Bebas Neue',cursive;font-size:clamp(48px,7vw,88px);line-height:1;letter-spacing:2px;margin-bottom:20px}
+.hero-title span{color:var(--red);display:block}
+.hero-desc{color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:36px;max-width:480px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--red);color:#fff;text-decoration:none;padding:14px 32px;border-radius:8px;font-size:14px;font-weight:700;transition:all .3s;border:2px solid var(--red)}
+.btn-primary:hover{background:transparent;color:var(--red);transform:translateY(-2px)}
+.btn-outline{border:2px solid var(--border);color:var(--text);text-decoration:none;padding:14px 32px;border-radius:8px;font-size:14px;font-weight:700;transition:all .3s;cursor:pointer;background:none}
+.btn-outline:hover{border-color:var(--red);color:var(--red)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;transition:all .3s}
+.stat-card:hover{border-color:var(--red);transform:translateY(-4px)}
+.stat-num{font-family:'Bebas Neue',cursive;font-size:48px;color:var(--red);line-height:1}
+.stat-label{color:var(--muted);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+#categories{padding:100px 24px}
+.section-wrapper{max-width:1400px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:60px}
+.section-tag{display:inline-block;background:rgba(230,57,70,.1);color:var(--red);padding:6px 16px;border-radius:30px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.section-title{font-family:'Bebas Neue',cursive;font-size:clamp(36px,5vw,56px);letter-spacing:2px}
+.section-title span{color:var(--red)}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.cat-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px 24px;text-align:center;cursor:pointer;transition:all .4s;text-decoration:none;display:block}
+.cat-card:hover{border-color:var(--red);transform:translateY(-8px);box-shadow:0 20px 60px rgba(230,57,70,.15)}
+.cat-icon{width:80px;height:80px;margin:0 auto 20px;background:rgba(230,57,70,.1);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:36px;transition:.3s}
+.cat-card:hover .cat-icon{background:rgba(230,57,70,.2);transform:scale(1.1)}
+.cat-name{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;letter-spacing:1px;margin-bottom:8px;color:var(--text)}
+.cat-count{color:var(--muted);font-size:13px}
+#products{padding:60px 24px 100px}
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;justify-content:center}
+.filter-btn{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all .3s;font-family:inherit}
+.filter-btn:hover,.filter-btn.active{background:var(--red);border-color:var(--red);color:#fff}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.product-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .4s;cursor:pointer;position:relative}
+.product-card:hover{border-color:var(--red);transform:translateY(-6px);box-shadow:0 20px 50px rgba(230,57,70,.12)}
+.product-img{width:100%;height:200px;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:64px;position:relative;overflow:hidden}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:.3s}
+.product-card:hover .product-img img{transform:scale(1.08)}
+.product-badge{position:absolute;top:12px;left:12px;background:var(--red);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;z-index:1}
+.product-badge.new{background:#00c851}.product-badge.hot{background:#ff6b35}
+.product-info{padding:20px}
+.product-brand{color:var(--muted);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.product-name{font-size:15px;font-weight:600;margin-bottom:10px;line-height:1.4;color:var(--text)}
+.product-stock{display:flex;align-items:center;gap:6px;font-size:12px}
+.stock-dot{width:8px;height:8px;border-radius:50%}
+.stock-dot.in{background:#00c851;box-shadow:0 0 6px rgba(0,200,81,.5)}.stock-dot.out{background:#888}
+.product-footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.product-price{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--red)}
+.call-order{background:rgba(230,57,70,.1);border:1px solid rgba(230,57,70,.3);color:var(--red);padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;transition:all .3s;font-family:inherit;text-decoration:none;display:inline-block}
+.call-order:hover{background:var(--red);color:#fff}
+#contact{padding:100px 24px;background:var(--darker)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.contact-info h2{font-family:'Bebas Neue',cursive;font-size:clamp(36px,4vw,52px);letter-spacing:2px;margin-bottom:20px;line-height:1.1}
+.contact-info h2 span{color:var(--red)}
+.contact-info p{color:var(--muted);line-height:1.7;margin-bottom:40px;font-size:15px}
+.contact-items{display:flex;flex-direction:column;gap:16px}
+.contact-item{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-decoration:none;color:var(--text);transition:all .3s}
+.contact-item:hover{border-color:var(--red);transform:translateX(8px)}
+.ci-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.ci-icon.tg{background:rgba(44,165,224,.15);color:#2CA5E0}
+.ci-icon.ig{background:rgba(225,48,108,.15);color:#E1306C}
+.ci-icon.ph{background:rgba(230,57,70,.15);color:var(--red)}
+.ci-icon.addr{background:rgba(255,215,0,.1);color:var(--gold)}
+.ci-label{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.ci-value{font-size:15px;font-weight:600}
+.map-placeholder{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;height:400px}
+.map-placeholder iframe{width:100%;height:100%;border:none;filter:grayscale(30%) contrast(1.1)}
+footer{background:var(--darker);border-top:1px solid var(--border);padding:40px 24px}
+.footer-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.footer-copy{color:var(--muted);font-size:13px}
+.footer-copy strong{color:var(--red)}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:2000;backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:20px;max-width:520px;width:100%;padding:40px;position:relative;animation:modalIn .3s ease;max-height:90vh;overflow-y:auto}
+@keyframes modalIn{from{opacity:0;transform:scale(.9) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-close{position:absolute;top:16px;right:16px;background:var(--card2);border:none;color:var(--muted);width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:.3s}
+.modal-close:hover{background:var(--red);color:#fff}
+.modal-img{width:100%;height:250px;object-fit:cover;border-radius:12px;margin-bottom:20px;background:var(--card2)}
+.modal-title{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;margin-bottom:8px}
+.modal-price{font-family:'Bebas Neue',cursive;font-size:42px;color:var(--red);margin-bottom:16px}
+.modal-desc{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:24px}
+.modal-actions{display:flex;gap:12px;flex-wrap:wrap}
+.modal-call{flex:1;min-width:120px;background:var(--red);color:#fff;text-decoration:none;padding:14px;border-radius:10px;font-size:14px;font-weight:700;text-align:center;transition:.3s}
+.modal-call:hover{background:#c0303c}
+.modal-tg{flex:1;min-width:120px;background:rgba(44,165,224,.1);border:1px solid rgba(44,165,224,.3);color:#2CA5E0;text-decoration:none;padding:14px;border-radius:10px;font-size:14px;font-weight:700;text-align:center;transition:.3s}
+.modal-tg:hover{background:rgba(44,165,224,.2)}
+#admin-login{display:none;position:fixed;inset:0;background:var(--darker);z-index:5000;align-items:center;justify-content:center}
+#admin-login.show{display:flex}
+.admin-form{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:48px;width:400px;max-width:90vw}
+.admin-form h2{font-family:'Bebas Neue',cursive;font-size:36px;letter-spacing:2px;margin-bottom:8px;text-align:center}
+.admin-form p{color:var(--muted);text-align:center;font-size:14px;margin-bottom:32px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.form-group input{width:100%;background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;color:var(--text);font-size:15px;font-family:inherit;outline:none;transition:.3s}
+.form-group input:focus{border-color:var(--red)}
+.admin-submit{width:100%;background:var(--red);border:none;color:#fff;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:.3s}
+.admin-err{color:#ff6b6b;font-size:13px;text-align:center;margin-top:12px;display:none}
+#admin-panel{display:none;position:fixed;inset:0;background:var(--darker);z-index:4000;overflow-y:auto}
+#admin-panel.show{display:block}
+.admin-nav{background:var(--card);border-bottom:1px solid var(--border);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.admin-title{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:2px;color:var(--red)}
+.admin-body{max-width:1200px;margin:0 auto;padding:40px 24px}
+.admin-tabs{display:flex;gap:8px;margin-bottom:40px;flex-wrap:wrap}
+.admin-tab{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:10px 24px;border-radius:8px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;transition:.3s}
+.admin-tab.active,.admin-tab:hover{background:var(--red);border-color:var(--red);color:#fff}
+.admin-section{display:none}.admin-section.active{display:block}
+.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
+.astat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center}
+.astat-num{font-family:'Bebas Neue',cursive;font-size:42px;color:var(--red)}
+.astat-label{color:var(--muted);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.admin-products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.apc{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.apc-body{padding:16px}
+.apc-name{font-size:14px;font-weight:600;margin-bottom:4px}
+.apc-price{color:var(--red);font-weight:700;font-size:16px;margin-bottom:12px}
+.apc-actions{display:flex;gap:8px}
+.apc-del,.apc-toggle{padding:8px 16px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;border:1px solid;transition:.3s}
+.apc-del{background:none;border-color:var(--border);color:var(--muted)}.apc-del:hover{border-color:#ff4444;color:#ff4444}
+.apc-toggle{background:none;border-color:var(--border);color:var(--muted)}.apc-toggle.in{border-color:rgba(0,200,81,.3);color:#00c851}
+.add-product-form{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px}
+.add-product-form h3{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:2px;margin-bottom:24px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-field{display:flex;flex-direction:column;gap:8px}
+.form-field label{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.form-field input,.form-field select,.form-field textarea{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;color:var(--text);font-family:inherit;font-size:14px;outline:none;transition:.3s}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--red)}
+.form-field select option{background:var(--card2)}
+.form-field.full{grid-column:1/-1}
+.add-btn{background:var(--red);border:none;color:#fff;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:.3s;margin-top:8px}
+.add-btn:hover{background:#c0303c}
+.toast{position:fixed;bottom:24px;left:24px;background:var(--card);border:1px solid rgba(0,200,81,.4);border-radius:10px;padding:16px 24px;font-size:14px;font-weight:600;color:#00c851;z-index:9999;transform:translateY(80px);opacity:0;transition:all .3s;pointer-events:none}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.err{border-color:rgba(255,68,68,.4);color:#ff4444}
+.reveal{opacity:0;transform:translateY(30px);transition:all .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+ 
+/* ========== DOMINANT AI CHATBOT ========== */
+#ai-fab{
+  position:fixed;bottom:28px;right:28px;z-index:3000;
+  width:64px;height:64px;border-radius:50%;
+  background:linear-gradient(135deg,#E63946,#c0303c);
+  border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px;
+  box-shadow:0 6px 28px rgba(230,57,70,.55);
+  transition:all .3s;
+}
+#ai-fab:hover{transform:scale(1.1);box-shadow:0 8px 36px rgba(230,57,70,.75)}
+#ai-fab .fab-icon{font-size:26px;line-height:1}
+#ai-fab .fab-label{font-family:'Bebas Neue',cursive;font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.85)}
+.ai-badge{position:absolute;top:-3px;right:-3px;background:#00c851;color:#fff;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;letter-spacing:.5px;border:2px solid var(--dark);animation:badgePulse 2s infinite}
+@keyframes badgePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+#ai-chat-window{
+  position:fixed;bottom:108px;right:28px;z-index:3000;
+  width:370px;max-width:calc(100vw - 32px);
+  background:var(--card);border:1px solid rgba(230,57,70,.2);
+  border-radius:20px;overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,.7);
+  display:none;flex-direction:column;
+  animation:chatSlideIn .3s ease;
+  max-height:calc(100vh - 150px);
+}
+#ai-chat-window.open{display:flex}
+@keyframes chatSlideIn{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.ai-header{
+  background:linear-gradient(135deg,#120408 0%,#1e060d 100%);
+  border-bottom:1px solid rgba(230,57,70,.25);
+  padding:14px 18px;display:flex;align-items:center;gap:12px;flex-shrink:0;
+}
+.ai-avatar-wrap{position:relative;flex-shrink:0}
+.ai-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,#E63946,#ff2d4b);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',cursive;font-size:18px;color:#fff;letter-spacing:1px;
+  box-shadow:0 0 18px rgba(230,57,70,.5);
+}
+.ai-online-dot{position:absolute;bottom:1px;right:1px;width:11px;height:11px;background:#00c851;border-radius:50%;border:2px solid #120408;box-shadow:0 0 6px rgba(0,200,81,.7)}
+.ai-info{flex:1}
+.ai-name{font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:3px;color:var(--red);line-height:1}
+.ai-sub{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:1px;margin-top:2px}
+.ai-header-close{background:rgba(255,255,255,.07);border:none;color:var(--muted);width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:.3s}
+.ai-header-close:hover{background:var(--red);color:#fff}
+.ai-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:220px}
+.ai-msgs::-webkit-scrollbar{width:3px}
+.ai-msgs::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.msg{display:flex;gap:8px;align-items:flex-end;animation:msgPop .2s ease}
+@keyframes msgPop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.msg.user{flex-direction:row-reverse}
+.msg-av{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.msg.bot .msg-av{background:linear-gradient(135deg,var(--red),#c0303c);color:#fff;font-family:'Bebas Neue',cursive;letter-spacing:1px}
+.msg.user .msg-av{background:rgba(255,255,255,.08);color:var(--muted);font-size:14px}
+.msg-bub{max-width:82%;padding:9px 13px;border-radius:14px;font-size:13px;line-height:1.55}
+.msg.bot .msg-bub{background:var(--card2);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:4px}
+.msg.user .msg-bub{background:linear-gradient(135deg,var(--red),#b02030);color:#fff;border-bottom-right-radius:4px}
+.msg-time{font-size:10px;color:var(--muted);margin-top:3px}
+.msg.user .msg-time{text-align:right}
+.typing{display:flex;gap:4px;align-items:center;padding:9px 13px;background:var(--card2);border:1px solid var(--border);border-radius:14px;border-bottom-left-radius:4px;width:fit-content}
+.t-dot{width:7px;height:7px;background:var(--red);border-radius:50%;opacity:.5;animation:tBounce 1.2s infinite}
+.t-dot:nth-child(2){animation-delay:.2s}.t-dot:nth-child(3){animation-delay:.4s}
+@keyframes tBounce{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-8px);opacity:1}}
+.ai-quick{padding:8px 14px;display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid var(--border);background:rgba(0,0,0,.3);flex-shrink:0}
+.qbtn{background:rgba(230,57,70,.08);border:1px solid rgba(230,57,70,.2);color:rgba(230,57,70,.9);padding:5px 11px;border-radius:18px;font-size:11px;font-weight:600;cursor:pointer;transition:all .25s;font-family:inherit;white-space:nowrap}
+.qbtn:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.ai-input-bar{padding:10px 14px;border-top:1px solid var(--border);display:flex;gap:8px;align-items:flex-end;flex-shrink:0;background:rgba(0,0,0,.15)}
+#aiInput{flex:1;background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:9px 13px;color:var(--text);font-family:inherit;font-size:13px;outline:none;transition:.3s;resize:none;line-height:1.4;max-height:100px;overflow-y:auto}
+#aiInput:focus{border-color:var(--red)}
+#aiSendBtn{background:var(--red);border:none;color:#fff;width:36px;height:36px;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0}
+#aiSendBtn:hover{background:#b02030;transform:scale(1.05)}
+#aiSendBtn:disabled{background:var(--border);cursor:not-allowed;transform:none}
+#aiSendBtn svg{width:15px;height:15px;fill:#fff}
+ 
+@media(max-width:1024px){.hero-content{grid-template-columns:1fr}.hero-stats{display:none}.cat-grid{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}.admin-stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.cat-grid{grid-template-columns:repeat(2,1fr)}.form-grid{grid-template-columns:1fr}.admin-stats{grid-template-columns:1fr 1fr}#ai-chat-window{right:12px;bottom:96px;width:calc(100vw - 24px)}#ai-fab{right:16px;bottom:16px}}
+@media(max-width:480px){.cat-grid{grid-column:1fr}}
+</style>
+</head>
+<body>
+ 
+<div id="loader"><div class="loader-logo">DOMINANT</div></div>
+ 
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <svg width="160" height="44" viewBox="0 0 160 44" fill="none">
+        <polygon points="22,2 38,11 38,33 22,42 6,33 6,11" fill="#E63946" opacity="0.15"/>
+        <polygon points="22,2 38,11 38,33 22,42 6,33 6,11" fill="none" stroke="#E63946" stroke-width="1.5"/>
+        <text x="22" y="29" text-anchor="middle" font-family="'Bebas Neue',cursive" font-size="22" fill="#E63946">D</text>
+        <text x="50" y="24" font-family="'Bebas Neue',cursive" font-size="22" fill="#f0f0f5" letter-spacing="3">DOMINANT</text>
+        <rect x="50" y="29" width="100" height="2" fill="#E63946" rx="1"/>
+        <text x="50" y="40" font-family="'Montserrat',sans-serif" font-size="8" fill="#888899" letter-spacing="4" font-weight="600">SAYRAM</text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="#hero" class="nav-link active">Bosh sahifa</a>
+      <a href="#categories" class="nav-link">Kategoriyalar</a>
+      <a href="#products" class="nav-link">Mahsulotlar</a>
+      <a href="#contact" class="nav-link">Aloqa</a>
+    </div>
+    <div class="nav-cta">
+      <div class="social-links">
+        <a href="https://t.me/KY9N37YR" target="_blank" class="social-btn tg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </a>
+        <a href="https://instagram.com/dominant_sayram" target="_blank" class="social-btn ig">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+      </div>
+      <a href="tel:+998901234567" class="call-btn" id="callBtn">📞 Qo'ng'iroq</a>
+      <button onclick="showAdminLogin()" class="admin-nav-btn">⚙ Admin</button>
+      <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+ 
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" class="nav-link" onclick="closeMenu()">Bosh sahifa</a>
+  <a href="#categories" class="nav-link" onclick="closeMenu()">Kategoriyalar</a>
+  <a href="#products" class="nav-link" onclick="closeMenu()">Mahsulotlar</a>
+  <a href="#contact" class="nav-link" onclick="closeMenu()">Aloqa</a>
+</div>
+ 
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"><div class="hero-line"></div><div class="hero-line"></div><div class="hero-line"></div></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-tag">🔴 Toshkent — Yunusobod tumani</div>
+      <h1 class="hero-title">AVTOMOBIL <span>SIDENASI</span> CHEXOLLARI</h1>
+      <p class="hero-desc">Barcha rusumlar uchun premium sifatli sidenasi chexollari, demete chexollar, BYD chexollari va nakitkalar. 80+ model.</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-primary">Mahsulotlarni ko'rish</a>
+        <a href="tel:+998901234567" class="btn-outline">📞 Qo'ng'iroq</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card reveal"><div class="stat-num" data-count="80">0</div><div class="stat-label">Chexol modeli</div></div>
+      <div class="stat-card reveal"><div class="stat-num" data-count="500">0</div><div class="stat-label">Baxtli mijozlar</div></div>
+      <div class="stat-card reveal"><div class="stat-num" data-count="10">0</div><div class="stat-label">Yillik tajriba</div></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="section-wrapper">
+    <div class="section-header reveal">
+      <div class="section-tag">Kategoriyalar</div>
+      <h2 class="section-title">MAHSULOT <span>TURLARI</span></h2>
+    </div>
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</section>
+ 
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-wrapper">
+    <div class="section-header reveal">
+      <div class="section-tag">Do'kon</div>
+      <h2 class="section-title">BARCHA <span>MAHSULOTLAR</span></h2>
+    </div>
+    <div style="max-width:500px;margin:0 auto 24px;position:relative">
+      <input type="text" id="searchInput" oninput="searchProducts(this.value)"
+        placeholder="🔍 Mahsulot qidirish... (Toyota, BYD, Rulda...)"
+        style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 48px 14px 20px;color:var(--text);font-family:inherit;font-size:14px;outline:none;transition:.3s"
+        onfocus="this.style.borderColor='var(--red)'" onblur="this.style.borderColor='var(--border)'">
+      <button id="searchClear" onclick="clearSearch()" style="display:none;position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);cursor:pointer;font-size:18px">✕</button>
+    </div>
+    <div class="filter-bar" id="filterBar"></div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</section>
+ 
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrapper">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h2>BIZ BILAN <span>BOG'LANING</span></h2>
+        <p>Savollaringiz bormi? Narx bilishni xohlaysizmi? Quyidagi usullardan birida murojaat qiling.</p>
+        <div class="contact-items">
+          <a href="https://t.me/KY9N37YR" target="_blank" class="contact-item">
+            <div class="ci-icon tg"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></div>
+            <div><div class="ci-label">Telegram</div><div class="ci-value">@KY9N37YR</div></div>
+          </a>
+          <a href="https://instagram.com/dominant_sayram" target="_blank" class="contact-item">
+            <div class="ci-icon ig"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></div>
+            <div><div class="ci-label">Instagram</div><div class="ci-value">@dominant_sayram</div></div>
+          </a>
+          <a href="tel:+998901234567" class="contact-item" id="phoneLink">
+            <div class="ci-icon ph">📞</div>
+            <div><div class="ci-label">Telefon</div><div class="ci-value" id="phoneDisplay">+998 90 123 45 67</div></div>
+          </a>
+          <a href="https://www.google.com/maps?q=41.372192,69.311120" target="_blank" class="contact-item">
+            <div class="ci-icon addr">📍</div>
+            <div><div class="ci-label">Manzil</div><div class="ci-value" id="addrDisplay">Toshkent, Yunusobod, 19-kvartal, Beshqayragoch somsa yonida</div></div>
+          </a>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="map-placeholder">
+          <iframe src="https://www.google.com/maps?q=41.372192,69.311120&z=17&output=embed" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2015 <strong>Dominant Sayram</strong>. Barcha huquqlar himoyalangan.</div>
+    <div class="social-links">
+      <a href="https://t.me/KY9N37YR" target="_blank" class="social-btn tg"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+      <a href="https://instagram.com/dominant_sayram" target="_blank" class="social-btn ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+    </div>
+  </div>
+</footer>
+ 
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="productModal" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    <img class="modal-img" id="modalImg" src="" alt="" style="display:none">
+    <div id="modalBadge" style="display:none;background:var(--red);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;display:inline-block;margin-bottom:10px"></div>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-price" id="modalPrice"></div>
+    <div class="modal-desc" id="modalDesc"></div>
+    <div id="modalTafsilot" style="display:none;background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:16px;font-size:13px;color:var(--muted);line-height:1.7;white-space:pre-wrap"></div>
+    <div class="modal-actions">
+      <a href="tel:+998901234567" class="modal-call" id="modalCall">📞 Qo'ng'iroq</a>
+      <a href="https://t.me/KY9N37YR" target="_blank" class="modal-tg">✈️ Telegram</a>
+      <button id="tafsilotBtn" onclick="toggleTafsilot()" style="display:none;flex:1;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted);padding:14px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">📋 Tafsilotlar</button>
+    </div>
+  </div>
+</div>
+ 
+<!-- ADMIN LOGIN -->
+<div id="admin-login">
+  <div class="admin-form">
+    <h2>ADMIN</h2>
+    <p>Boshqaruv paneliga kirish</p>
+    <div class="form-group"><label>Login</label><input type="text" id="adminUser" placeholder="Login kiriting"></div>
+    <div class="form-group"><label>Parol</label><input type="password" id="adminPass" placeholder="Parol kiriting" onkeydown="if(event.key==='Enter')adminLogin()"></div>
+    <button class="admin-submit" onclick="adminLogin()">Kirish</button>
+    <div class="admin-err" id="adminErr">Login yoki parol noto'g'ri!</div>
+    <button onclick="hideAdminLogin()" style="background:none;border:none;color:var(--muted);width:100%;margin-top:16px;cursor:pointer;font-family:inherit;font-size:13px">← Orqaga</button>
+  </div>
+</div>
+ 
+<!-- ADMIN PANEL -->
+<div id="admin-panel">
+  <div class="admin-nav">
+    <div class="admin-title">⚙ ADMIN PANEL</div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <span style="color:var(--muted);font-size:13px" id="adminWelcome"></span>
+      <button style="background:none;border:1px solid var(--border);color:var(--muted);padding:8px 20px;border-radius:8px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;transition:.3s" onclick="adminLogout()">Chiqish</button>
+    </div>
+  </div>
+  <div class="admin-body">
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchTab('dashboard')">📊 Dashboard</button>
+      <button class="admin-tab" onclick="switchTab('products')">📦 Mahsulotlar</button>
+      <button class="admin-tab" onclick="switchTab('add')">➕ Yangi mahsulot</button>
+      <button class="admin-tab" onclick="switchTab('categories')">🏷️ Kategoriyalar</button>
+      <button class="admin-tab" onclick="switchTab('settings')">⚙ Sozlamalar</button>
+    </div>
+    <div class="admin-section active" id="tab-dashboard">
+      <div class="admin-stats">
+        <div class="astat"><div class="astat-num" id="statTotal">0</div><div class="astat-label">Jami mahsulot</div></div>
+        <div class="astat"><div class="astat-num" id="statIn">0</div><div class="astat-label">Mavjud</div></div>
+        <div class="astat"><div class="astat-num" id="statOut">0</div><div class="astat-label">Tugagan</div></div>
+        <div class="astat"><div class="astat-num" id="statCats">0</div><div class="astat-label">Kategoriya</div></div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px">
+        <h3 style="font-family:'Bebas Neue',cursive;font-size:24px;letter-spacing:2px;margin-bottom:16px;color:var(--red)">TEZKOR AMALLAR</h3>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="add-btn" onclick="switchTab('add')">➕ Yangi mahsulot</button>
+          <button class="add-btn" style="background:rgba(230,57,70,.1);color:var(--red);border:1px solid rgba(230,57,70,.3)" onclick="switchTab('products')">📦 Boshqarish</button>
+        </div>
+      </div>
+    </div>
+    <div class="admin-section" id="tab-products">
+      <h3 style="font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:2px;margin-bottom:24px">BARCHA MAHSULOTLAR</h3>
+      <div class="admin-products-grid" id="adminProductsGrid"></div>
+    </div>
+    <div class="admin-section" id="tab-add">
+      <div class="add-product-form">
+        <h3>YANGI MAHSULOT</h3>
+        <div class="form-grid">
+          <div class="form-field"><label>Nomi</label><input type="text" id="pName" placeholder="Toyota Camry Gitara Chexol"></div>
+          <div class="form-field"><label>Kategoriya</label><input type="text" id="pCat" placeholder="Gitara, Demete, BYD..."></div>
+          <div class="form-field"><label>Narxi (so'm)</label><input type="number" id="pPrice" placeholder="350000"></div>
+          <div class="form-field"><label>Brend</label><input type="text" id="pBrand" placeholder="Toyota, BYD, Universal"></div>
+          <div class="form-field full">
+            <label>Rasm</label>
+            <div style="display:flex;align-items:center;gap:12px">
+              <button type="button" onclick="document.getElementById('pImgFile').click()" style="background:rgba(230,57,70,.1);border:1px solid rgba(230,57,70,.3);color:var(--red);padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">📷 Rasm tanlash</button>
+              <input type="file" id="pImgFile" accept="image/*" style="display:none" onchange="previewImg(this)">
+              <span id="imgFileName" style="color:var(--muted);font-size:12px">Rasm tanlanmagan</span>
+            </div>
+            <input type="hidden" id="pImg">
+          </div>
+          <div class="form-field"><label>Badge</label>
+            <select id="pBadge"><option value="">Yo'q</option><option value="Yangi">🟢 Yangi</option><option value="Ommabop">🔥 Ommabop</option><option value="Chegirma">💥 Chegirma</option></select>
+          </div>
+          <div class="form-field full"><label>Tavsif</label><textarea id="pDesc" rows="2" placeholder="Qisqacha tavsif..."></textarea></div>
+          <div class="form-field full"><label>Tafsilotlar</label><textarea id="pTafsilot" rows="3" placeholder="Material, o'lcham, kafolat..."></textarea></div>
+          <div class="form-field"><label>Holati</label>
+            <select id="pStock"><option value="1">✅ Mavjud</option><option value="0">❌ Tugagan</option></select>
+          </div>
+        </div>
+        <button class="add-btn" onclick="addProduct()">➕ Qo'shish</button>
+      </div>
+    </div>
+    <div class="admin-section" id="tab-categories">
+      <div class="add-product-form" style="margin-bottom:24px">
+        <h3>YANGI KATEGORIYA</h3>
+        <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap">
+          <div class="form-field" style="flex:1;min-width:200px"><label>Nomi</label><input type="text" id="newCatName" placeholder="Masalan: Toyota, Rulda..."></div>
+          <button class="add-btn" style="margin-top:0;height:44px" onclick="addCategory()">➕ Qo'shish</button>
+        </div>
+      </div>
+      <div class="add-product-form"><h3>MAVJUD KATEGORIYALAR</h3><div id="catManageGrid" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px"></div></div>
+    </div>
+    <div class="admin-section" id="tab-settings">
+      <div class="add-product-form">
+        <h3>SOZLAMALAR</h3>
+        <div class="form-grid">
+          <div class="form-field"><label>Telefon</label><input type="text" id="settPhone"></div>
+          <div class="form-field"><label>Telegram</label><input type="text" id="settTg"></div>
+          <div class="form-field"><label>Instagram</label><input type="text" id="settIg"></div>
+          <div class="form-field"><label>Manzil</label><input type="text" id="settAddr"></div>
+        </div>
+        <button class="add-btn" onclick="saveSettings()">💾 Saqlash</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<div class="toast" id="toast"></div>
+ 
+<!-- ========== DOMINANT AI CHATBOT ========== -->
+<button id="ai-fab" onclick="toggleChat()">
+  <div class="ai-badge">AI</div>
+  <div class="fab-icon">💬</div>
+  <div class="fab-label">DOMINANT</div>
+</button>
+ 
+<div id="ai-chat-window">
+  <div class="ai-header">
+    <div class="ai-avatar-wrap">
+      <div class="ai-avatar">D</div>
+      <div class="ai-online-dot"></div>
+    </div>
+    <div class="ai-info">
+      <div class="ai-name">DOMINANT AI</div>
+      <div class="ai-sub">AVTOMOBIL AKSESSUAR YORDAMCHISI</div>
+    </div>
+    <button class="ai-header-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="ai-msgs" id="aiMsgs"></div>
+  <div class="ai-quick">
+    <button class="qbtn" onclick="sendQuick('Narxlar qancha?')">💰 Narxlar</button>
+    <button class="qbtn" onclick="sendQuick('Toyota chexol bormi?')">🚗 Toyota</button>
+    <button class="qbtn" onclick="sendQuick('BYD chexollari haqida')">⚡ BYD</button>
+    <button class="qbtn" onclick="sendQuick('Manzil qayerda?')">📍 Manzil</button>
+    <button class="qbtn" onclick="sendQuick('Qanday to\'lov usullari bor?')">💳 To'lov</button>
+    <button class="qbtn" onclick="sendQuick('Yetkazib berish bormi?')">🚚 Yetkazib berish</button>
+  </div>
+  <div class="ai-input-bar">
+    <textarea id="aiInput" placeholder="Savolingizni yozing..." rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+    <button id="aiSendBtn" onclick="sendMsg()">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+ 
+<script>
+// ==============================
+// DATA
+// ==============================
+const ADMIN_USER = 'botr0418';
+const ADMIN_CODE = '1490';
+ 
+let products = JSON.parse(localStorage.getItem('ds_products') || 'null');
+let settings = JSON.parse(localStorage.getItem('ds_settings') || 'null');
+let extraCats = JSON.parse(localStorage.getItem('ds_cats') || '[]');
+let likes = JSON.parse(localStorage.getItem('ds_likes') || '{}');
+ 
+if (!products) { products = makeDefaultProducts(); localStorage.setItem('ds_products', JSON.stringify(products)); }
+if (!settings) {
+  settings = { phone: '+998 90 123 45 67', tg: '@KY9N37YR', ig: 'dominant_sayram', addr: "Toshkent, Yunusobod, 19-kvartal, Beshqayragoch somsa yonida" };
+  localStorage.setItem('ds_settings', JSON.stringify(settings));
+}
+ 
+function makeDefaultProducts() {
+  const data = {
+    Gitara: [
+      {n:'Toyota Camry Gitara Chexol (Qora)',b:'Toyota',p:450000,badge:'Ommabop'},
+      {n:'Nexia 3 Gitara Chexol',b:'Nexia',p:280000,badge:''},
+      {n:'Cobalt Gitara Chexol (Bej)',b:'Cobalt',p:260000,badge:''},
+      {n:'Malibu Gitara Chexol',b:'Malibu',p:320000,badge:'Yangi'},
+      {n:'Spark Gitara Chexol',b:'Spark',p:220000,badge:''},
+      {n:'Damas Gitara Chexol',b:'Damas',p:180000,badge:''},
+      {n:'Lacetti Gitara Chexol',b:'Lacetti',p:290000,badge:''},
+      {n:'Gentra Gitara Chexol (Qora/Qizil)',b:'Gentra',p:310000,badge:'Yangi'},
+      {n:'Tracker Gitara Chexol (Premium)',b:'Tracker',p:480000,badge:'Ommabop'},
+      {n:'Jolion Gitara Chexol',b:'Haval',p:380000,badge:'Yangi'},
+      {n:'Hyundai Tucson Gitara',b:'Hyundai',p:460000,badge:'Ommabop'},
+      {n:'KIA Sportage Gitara',b:'KIA',p:470000,badge:''},
+      {n:'Toyota Corolla Gitara',b:'Toyota',p:430000,badge:''},
+      {n:'Honda Civic Gitara',b:'Honda',p:440000,badge:''},
+      {n:'Nissan Juke Gitara',b:'Nissan',p:360000,badge:''},
+    ],
+    Demete: [
+      {n:'Nexia 3 Demete Chexol (Full Set)',b:'Nexia',p:650000,badge:'Ommabop'},
+      {n:'Cobalt Demete Chexol',b:'Cobalt',p:600000,badge:''},
+      {n:'Malibu Demete Chexol (Premium)',b:'Malibu',p:750000,badge:'Yangi'},
+      {n:'Spark Demete Chexol',b:'Spark',p:550000,badge:''},
+      {n:'Gentra Demete Chexol',b:'Gentra',p:700000,badge:''},
+      {n:'Tracker Demete Full Set',b:'Tracker',p:950000,badge:'Ommabop'},
+      {n:'Jolion Demete Chexol',b:'Haval',p:820000,badge:'Yangi'},
+      {n:'Toyota Camry Demete (7D)',b:'Toyota',p:1100000,badge:''},
+      {n:'Hyundai Creta Demete',b:'Hyundai',p:850000,badge:''},
+      {n:'KIA Sportage Demete Set',b:'KIA',p:900000,badge:''},
+      {n:'Changan CS35 Demete',b:'Changan',p:720000,badge:'Yangi'},
+      {n:'Geely Coolray Demete',b:'Geely',p:760000,badge:'Yangi'},
+    ],
+    BYD: [
+      {n:'BYD Song Plus Chexol',b:'BYD',p:980000,badge:'Yangi'},
+      {n:'BYD Atto 3 Chexol (Premium)',b:'BYD',p:1050000,badge:'Ommabop'},
+      {n:'BYD Seal Chexol (To\'liq Set)',b:'BYD',p:1200000,badge:'Yangi'},
+      {n:'BYD Han Chexol (Luxury)',b:'BYD',p:1350000,badge:''},
+      {n:'BYD Tang Chexol (7D)',b:'BYD',p:1150000,badge:''},
+      {n:'BYD Dolphin Chexol',b:'BYD',p:880000,badge:'Yangi'},
+      {n:'BYD Yuan Plus Chexol',b:'BYD',p:920000,badge:''},
+      {n:'BYD Song Pro Chexol',b:'BYD',p:1020000,badge:'Ommabop'},
+      {n:'BYD Seagull Chexol',b:'BYD',p:580000,badge:'Yangi'},
+      {n:'BYD Qin Plus DM-i',b:'BYD',p:980000,badge:''},
+    ],
+    Nakitka: [
+      {n:'Rulda Nakitka (Qora deri)',b:'Universal',p:180000,badge:'Ommabop'},
+      {n:'Rulda Nakitka (Carbon Look)',b:'Universal',p:220000,badge:'Yangi'},
+      {n:'Dashboard Nakitka To\'liq Set',b:'Universal',p:450000,badge:'Ommabop'},
+      {n:'Oyoq Gilami (4ta) Qora',b:'Universal',p:280000,badge:''},
+      {n:'Oyoq Gilami Premium (4ta)',b:'Universal',p:350000,badge:'Yangi'},
+      {n:'Carbon Fiber Nakitka Set',b:'Sport',p:380000,badge:'Ommabop'},
+      {n:'Toyota Rulda Nakitka',b:'Toyota',p:250000,badge:''},
+      {n:'BYD Rulda Nakitka Original',b:'BYD',p:320000,badge:''},
+      {n:'Sport Rulda Nakitka (Qizil)',b:'Sport',p:240000,badge:'Yangi'},
+      {n:'Eshik Tutqich Nakitka (4ta)',b:'Universal',p:120000,badge:''},
+    ]
+  };
+  let all = [], id = 1;
+  Object.entries(data).forEach(([cat, items]) => {
+    items.forEach((it, i) => all.push({
+      id: id++, name: it.n, brand: it.b, category: cat,
+      price: it.p, badge: it.badge || '',
+      desc: `${it.b} uchun sifatli ${cat.toLowerCase()} chexol. Tez o'rnatish, uzoq xizmat muddati. Kafolat bilan.`,
+      img: '', inStock: i < items.length * 0.85 ? 1 : 0, tafsilot: ''
+    }));
+  });
+  return all;
+}
+ 
+function saveProducts() { localStorage.setItem('ds_products', JSON.stringify(products)); }
+function saveCats() { localStorage.setItem('ds_cats', JSON.stringify(extraCats)); }
+function saveLikes() { localStorage.setItem('ds_likes', JSON.stringify(likes)); }
+function fp(p) { return new Intl.NumberFormat('uz-UZ').format(p) + " so'm"; }
+function emoji(c) { return {gitara:'🚗',demete:'🛡️',byd:'⚡',nakitka:'🎯'}[(c||'').toLowerCase()] || '🏷️'; }
+ 
+// ==============================
+// SEARCH — TO'LIQ ISHLAYDI
+// ==============================
+let curFilter = 'all';
+let curSearch = '';
+ 
+function searchProducts(val) {
+  curSearch = val.trim().toLowerCase();
+  document.getElementById('searchClear').style.display = curSearch ? 'block' : 'none';
+  renderProducts(curFilter);
+}
+ 
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  curSearch = '';
+  document.getElementById('searchClear').style.display = 'none';
+  renderProducts(curFilter);
+}
+ 
+// ==============================
+// RENDER
+// ==============================
+function renderProducts(filter) {
+  curFilter = filter;
+  let list = filter === 'all' ? [...products] : products.filter(p => p.category.toLowerCase() === filter.toLowerCase());
+  if (curSearch) {
+    list = list.filter(p =>
+      p.name.toLowerCase().includes(curSearch) ||
+      (p.brand || '').toLowerCase().includes(curSearch) ||
+      (p.category || '').toLowerCase().includes(curSearch) ||
+      fp(p.price).includes(curSearch)
+    );
+  }
+  const grid = document.getElementById('productsGrid');
+  if (!list.length) {
+    grid.innerHTML = '<p style="color:var(--muted);grid-column:1/-1;text-align:center;padding:60px">🔍 Mahsulot topilmadi</p>';
+    return;
+  }
+  grid.innerHTML = list.map(p => `
+    <div class="product-card" onclick="openModal(${p.id})">
+      ${p.badge ? `<div class="product-badge${p.badge==='Yangi'?' new':p.badge==='Ommabop'?' hot':''}">${p.badge}</div>` : ''}
+      <button onclick="toggleLike(${p.id},event)" style="position:absolute;top:12px;right:12px;z-index:2;background:${likes[p.id]?'rgba(230,57,70,.9)':'rgba(0,0,0,.5)'};border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:.3s;backdrop-filter:blur(4px)">${likes[p.id]?'❤️':'🤍'}</button>
+      <div class="product-img">${p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:64px">${emoji(p.category)}</div>`}</div>
+      <div class="product-info">
+        <div class="product-brand">${p.brand || ''}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-stock"><div class="stock-dot ${p.inStock?'in':'out'}"></div><span style="color:var(--muted)">${p.inStock?'Mavjud':'Tugagan'}</span></div>
+        <div class="product-footer">
+          <div class="product-price">${fp(p.price)}</div>
+          <a href="tel:${(settings.phone||'').replace(/\s/g,'')}" class="call-order" onclick="event.stopPropagation()">📞 Buyurtma</a>
+        </div>
+      </div>
+    </div>`).join('');
+}
+ 
+function renderCatGrid() {
+  const cats = [...new Set(products.map(p => p.category).filter(Boolean))];
+  const grid = document.getElementById('catGrid');
+  if (!grid) return;
+  grid.innerHTML = cats.map(c => {
+    const cnt = products.filter(p => p.category === c).length;
+    return `<a href="#products" class="cat-card reveal" onclick="filterProducts('${c}')">
+      <div class="cat-icon">${emoji(c)}</div>
+      <div class="cat-name">${c}</div>
+      <div class="cat-count">${cnt} model</div>
+    </a>`;
+  }).join('');
+  grid.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+}
+ 
+function renderFilterBar() {
+  const prodCats = [...new Set(products.map(p => p.category).filter(Boolean))];
+  const all = [...new Set([...extraCats, ...prodCats])];
+  document.getElementById('filterBar').innerHTML =
+    `<button class="filter-btn ${curFilter==='all'?'active':''}" onclick="filterProducts('all')">Barchasi</button>` +
+    all.map(c => `<button class="filter-btn ${curFilter===c?'active':''}" onclick="filterProducts('${c}')">${c}</button>`).join('');
+}
+ 
+function filterProducts(f) {
+  curFilter = f; renderFilterBar(); renderProducts(f);
+  document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+}
+ 
+// ==============================
+// MODAL
+// ==============================
+function openModal(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('modalTitle').textContent = p.name;
+  document.getElementById('modalPrice').textContent = fp(p.price);
+  document.getElementById('modalDesc').textContent = p.desc || '';
+  const bdg = document.getElementById('modalBadge');
+  if (p.badge) { bdg.textContent = p.badge; bdg.style.display = 'inline-block'; } else { bdg.style.display = 'none'; }
+  const img = document.getElementById('modalImg');
+  img.src = p.img || ''; img.style.display = p.img ? 'block' : 'none';
+  const taf = document.getElementById('modalTafsilot');
+  taf.style.display = 'none'; taf.textContent = p.tafsilot || '';
+  document.getElementById('tafsilotBtn').style.display = p.tafsilot ? 'inline-block' : 'none';
+  document.getElementById('modalCall').href = 'tel:' + (settings.phone || '').replace(/\s/g, '');
+  document.getElementById('productModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function toggleTafsilot() {
+  const el = document.getElementById('modalTafsilot');
+  el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+function closeModal(e) { if (e.target.id === 'productModal') closeModalDirect(); }
+function closeModalDirect() { document.getElementById('productModal').classList.remove('open'); document.body.style.overflow = ''; }
+function toggleLike(id, e) { e.stopPropagation(); likes[id] = !likes[id]; saveLikes(); renderProducts(curFilter); }
+ 
+// ==============================
+// ADMIN
+// ==============================
+function showAdminLogin() { document.getElementById('admin-login').classList.add('show'); }
+function hideAdminLogin() { document.getElementById('admin-login').classList.remove('show'); document.getElementById('adminErr').style.display='none'; }
+function adminLogin() {
+  if (document.getElementById('adminUser').value===ADMIN_USER && document.getElementById('adminPass').value===ADMIN_CODE) {
+    hideAdminLogin();
+    document.getElementById('admin-panel').classList.add('show');
+    document.getElementById('adminWelcome').textContent = 'Salom, Admin!';
+    renderAdminStats(); renderAdminProducts(); loadSettings();
+    document.body.style.overflow = 'hidden';
+  } else { document.getElementById('adminErr').style.display='block'; }
+}
+function adminLogout() { document.getElementById('admin-panel').classList.remove('show'); document.getElementById('adminUser').value=''; document.getElementById('adminPass').value=''; document.body.style.overflow=''; }
+function switchTab(tab) {
+  const tabs = ['dashboard','products','add','categories','settings'];
+  document.querySelectorAll('.admin-tab').forEach((t,i) => t.classList.toggle('active', tabs[i]===tab));
+  document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  if (tab==='products') renderAdminProducts();
+  if (tab==='categories') renderCatManage();
+}
+function renderAdminStats() {
+  document.getElementById('statTotal').textContent = products.length;
+  document.getElementById('statIn').textContent = products.filter(p=>p.inStock).length;
+  document.getElementById('statOut').textContent = products.filter(p=>!p.inStock).length;
+  document.getElementById('statCats').textContent = [...new Set([...extraCats,...products.map(p=>p.category).filter(Boolean)])].length;
+}
+function renderAdminProducts() {
+  document.getElementById('adminProductsGrid').innerHTML = products.map(p => `
+    <div class="apc">
+      <div style="width:100%;height:160px;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;overflow:hidden;cursor:pointer" onclick="changeProductImg(${p.id})">
+        ${p.img ? `<img src="${p.img}" alt="" style="width:100%;height:100%;object-fit:cover">` : emoji(p.category)}
+      </div>
+      <div class="apc-body">
+        <div class="apc-name">${p.name}</div>
+        <div class="apc-price">${fp(p.price)}</div>
+        <div class="apc-actions">
+          <button class="apc-toggle ${p.inStock?'in':''}" onclick="toggleStock(${p.id})">${p.inStock?'✅ Mavjud':'❌ Tugagan'}</button>
+          <button class="apc-del" onclick="deleteProduct(${p.id})">🗑 O'chir</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function toggleStock(id) { const p=products.find(x=>x.id===id); if(p){p.inStock=p.inStock?0:1;saveProducts();renderAdminProducts();renderAdminStats();toast(p.inStock?'✅ Mavjud':'❌ Tugagan');} }
+function deleteProduct(id) { if(confirm("O'chirasizmi?")){products=products.filter(p=>p.id!==id);saveProducts();renderAdminProducts();renderAdminStats();renderProducts(curFilter);toast("✅ O'chirildi");} }
+function addProduct() {
+  const name=document.getElementById('pName').value.trim(), price=parseInt(document.getElementById('pPrice').value);
+  if(!name||!price){toast('⚠ Nom va narx kiriting!',true);return;}
+  products.unshift({id:Date.now(),name,brand:document.getElementById('pBrand').value.trim()||'Universal',category:document.getElementById('pCat').value||'Boshqa',price,badge:document.getElementById('pBadge').value,desc:document.getElementById('pDesc').value.trim()||`${name} — sifatli mahsulot.`,tafsilot:document.getElementById('pTafsilot').value.trim(),img:document.getElementById('pImg').value,inStock:parseInt(document.getElementById('pStock').value)});
+  saveProducts();renderAdminStats();renderProducts(curFilter);renderFilterBar();renderCatGrid();
+  ['pName','pPrice','pBrand','pImg','pDesc','pTafsilot'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('imgFileName').textContent='Rasm tanlanmagan';
+  toast("✅ Mahsulot qo'shildi!");switchTab('products');
+}
+function previewImg(input) {
+  const file=input.files[0]; if(!file) return;
+  if(file.size>5*1024*1024){toast('⚠ 5MB dan kichik bo\'lsin!',true);return;}
+  const r=new FileReader(); r.onload=e=>{document.getElementById('pImg').value=e.target.result;document.getElementById('imgFileName').innerHTML=`<span style="color:#00c851;font-weight:700">✅ ${file.name}</span>`;}; r.readAsDataURL(file);
+}
+function changeProductImg(id) {
+  const inp=document.createElement('input');inp.type='file';inp.accept='image/*';
+  inp.onchange=()=>{const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{const p=products.find(x=>x.id===id);if(p){p.img=e.target.result;saveProducts();renderAdminProducts();renderProducts(curFilter);toast('✅ Rasm yangilandi!');}};r.readAsDataURL(f);};
+  inp.click();
+}
+function addCategory() {
+  const name=document.getElementById('newCatName').value.trim();
+  if(!name){toast('⚠ Nom kiriting!',true);return;}
+  if(extraCats.includes(name)){toast('⚠ Allaqachon bor!',true);return;}
+  extraCats.push(name);saveCats();document.getElementById('newCatName').value='';
+  renderCatManage();renderFilterBar();renderCatGrid();toast("✅ Kategoriya qo'shildi!");
+}
+function deleteCategory(name) { extraCats=extraCats.filter(c=>c!==name);saveCats();renderCatManage();renderFilterBar();renderCatGrid();toast("✅ O'chirildi"); }
+function renderCatManage() {
+  const all=[...new Set([...extraCats,...products.map(p=>p.category).filter(Boolean)])];
+  const grid=document.getElementById('catManageGrid');
+  if(!all.length){grid.innerHTML='<p style="color:var(--muted);font-size:14px">Hali kategoriya yo\'q</p>';return;}
+  grid.innerHTML=all.map(c=>{
+    const cnt=products.filter(p=>p.category===c).length;
+    return `<div style="background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px">
+      <span style="font-size:18px">${emoji(c)}</span>
+      <div><div style="font-weight:700;font-size:14px">${c}</div><div style="color:var(--muted);font-size:11px">${cnt} ta mahsulot</div></div>
+      <button onclick="deleteCategory('${c}')" style="margin-left:auto;background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px;font-family:inherit" onmouseover="this.style.color='#ff4444'" onmouseout="this.style.color='var(--muted)'">🗑</button>
+    </div>`;
+  }).join('');
+}
+function loadSettings() { document.getElementById('settPhone').value=settings.phone;document.getElementById('settTg').value=settings.tg;document.getElementById('settIg').value=settings.ig;document.getElementById('settAddr').value=settings.addr; }
+function saveSettings() {
+  settings={phone:document.getElementById('settPhone').value||settings.phone,tg:document.getElementById('settTg').value||settings.tg,ig:document.getElementById('settIg').value||settings.ig,addr:document.getElementById('settAddr').value||settings.addr};
+  localStorage.setItem('ds_settings',JSON.stringify(settings));applySettings();toast('✅ Sozlamalar saqlandi!');
+}
+function applySettings() {
+  document.getElementById('phoneDisplay').textContent=settings.phone;
+  document.getElementById('addrDisplay').textContent=settings.addr;
+  const ph=(settings.phone||'').replace(/\s/g,'');
+  document.getElementById('callBtn').href='tel:'+ph;
+  document.getElementById('phoneLink').href='tel:'+ph;
+}
+ 
+function toast(msg,isErr) { const t=document.getElementById('toast');t.textContent=msg;t.className='toast'+(isErr?' err':'')+' show';setTimeout(()=>t.classList.remove('show'),3000); }
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+ 
+const ro = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);} }), {threshold:.1});
+function animateCounter(el,target) { let c=0,inc=Math.ceil(target/50);const t=setInterval(()=>{c=Math.min(c+inc,target);el.textContent=c+'+';if(c>=target)clearInterval(t);},30); }
+window.addEventListener('scroll',()=>{
+  const secs=['hero','categories','products','contact'],y=window.scrollY+100;
+  secs.forEach(id=>{const el=document.getElementById(id);if(!el)return;if(y>=el.offsetTop&&y<el.offsetTop+el.offsetHeight)document.querySelectorAll('.nav-link').forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id));});
+});
+ 
+// ==============================
+// DOMINANT AI — Anthropic API
+// ==============================
+let chatOpen = false;
+let chatHistory = [];
+let aiWorking = false;
+ 
+const AI_SYSTEM = `Sen "DOMINANT AI" — Dominant Sayram avtomobil aksessuar do'konining sun'iy intellekt yordamchisisan.
+ 
+DO'KON MA'LUMOTLARI:
+• Nomi: Dominant Sayram
+• Manzil: Toshkent, Yunusobod tumani, 19-kvartal, Beshqayragoch somsa yonida
+• Telefon: +998 90 123 45 67
+• Telegram: @KY9N37YR
+• Instagram: @dominant_sayram
+• Ish vaqti: Har kuni 9:00 — 21:00
+• To'lov: Naqd, karta (Uzcard, Humo), muddatli to'lov
+• Yetkazib berish: Toshkent bo'ylab bor (1-2 kun)
+ 
+MAHSULOTLAR:
+1. GITARA CHEXOLLAR (sidenasi chexol) — 180,000 dan 560,000 so'mgacha
+   Toyota, Nexia, Cobalt, Malibu, Spark, Tracker, Equinox, Haval Jolion/F7, Hyundai, KIA, Honda, Nissan va boshqa rusumlar uchun
+   
+2. DEMETE CHEXOLLAR (to'liq to'plam) — 550,000 dan 1,100,000 so'mgacha
+   Nexia, Cobalt, Malibu, Tracker, Toyota Camry/Corolla, Hyundai Creta/Tucson, KIA, Changan, Geely va boshqalar uchun
+   
+3. BYD CHEXOLLAR — 580,000 dan 1,350,000 so'mgacha
+   BYD Song Plus/Pro/Max, Atto 3, Seal, Han, Tang, Dolphin, Yuan Plus, Seagull, Qin Plus — barcha BYD modellari
+   
+4. NAKITKALAR — 70,000 dan 450,000 so'mgacha
+   Rulda nakitkalar (deri, carbon look), dashboard to'plamlar, oyoq gilamlari (oddiy va premium), sport nakitkalar
+ 
+KAFOLAT: barcha mahsulotlarga 6 oylik kafolat beriladi.
+O'RNATISH: do'konda bepul o'rnatish xizmati bor.
+ 
+QOIDALAR:
+- Faqat O'zbek tilida javob ber
+- Qisqa, aniq va foydali javob ber (3-5 jumlada)
+- Muayyan narxlarni ayt
+- Buyurtma uchun doim telefon yoki Telegram ga yo'naldir
+- Agar savol do'kon bilan bog'liq bo'lmasa ham yaxshi javob ber
+- Do'stona, professional va yordam berishga tayyor bo'l`;
+ 
+function toggleChat() {
+  chatOpen = !chatOpen;
+  const w = document.getElementById('ai-chat-window');
+  if (chatOpen) {
+    w.classList.add('open');
+    if (!chatHistory.length) {
+      setTimeout(() => addBot("Assalomu alaykum! 👋 Men DOMINANT AI — sizning avtomobil aksessuar bo'yicha shaxsiy yordamchiingizman.\n\nChexol turlari, narxlar, manzil yoki boshqa har qanday savol bo'yicha yordam berishga tayyorman! 🚗"), 350);
+    }
+    setTimeout(() => document.getElementById('aiInput').focus(), 400);
+  } else {
+    w.classList.remove('open');
+  }
+}
+ 
+function addBot(text) {
+  const msgs = document.getElementById('aiMsgs');
+  const time = new Date().toLocaleTimeString('uz-UZ', {hour:'2-digit',minute:'2-digit'});
+  const d = document.createElement('div');
+  d.className = 'msg bot';
+  d.innerHTML = `<div class="msg-av">D</div><div><div class="msg-bub">${text.replace(/\n/g,'<br>').replace(/•/g,'•')}</div><div class="msg-time">${time}</div></div>`;
+  msgs.appendChild(d);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+ 
+function addUser(text) {
+  const msgs = document.getElementById('aiMsgs');
+  const time = new Date().toLocaleTimeString('uz-UZ', {hour:'2-digit',minute:'2-digit'});
+  const d = document.createElement('div');
+  d.className = 'msg user';
+  d.innerHTML = `<div class="msg-av">👤</div><div><div class="msg-bub">${text.replace(/</g,'&lt;')}</div><div class="msg-time">${time}</div></div>`;
+  msgs.appendChild(d);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+ 
+function showTyping() {
+  const msgs = document.getElementById('aiMsgs');
+  const d = document.createElement('div');
+  d.className = 'msg bot'; d.id = 'typingIndicator';
+  d.innerHTML = `<div class="msg-av">D</div><div class="typing"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div></div>`;
+  msgs.appendChild(d);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+ 
+function hideTyping() { const el = document.getElementById('typingIndicator'); if(el) el.remove(); }
+ 
+async function sendMsg() {
+  if (aiWorking) return;
+  const inp = document.getElementById('aiInput');
+  const text = inp.value.trim();
+  if (!text) return;
+  inp.value = ''; inp.style.height = 'auto';
+  addUser(text);
+  chatHistory.push({role:'user', content:text});
+  aiWorking = true;
+  document.getElementById('aiSendBtn').disabled = true;
+  showTyping();
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: AI_SYSTEM,
+        messages: chatHistory
+      })
+    });
+    const data = await res.json();
+    hideTyping();
+    if (data.content && data.content[0] && data.content[0].text) {
+      const reply = data.content[0].text;
+      chatHistory.push({role:'assistant', content:reply});
+      addBot(reply);
+    } else {
+      addBot("Kechirasiz, hozir javob bera olmayapman. Iltimos to'g'ridan-to'g'ri murojaat qiling:\n📞 +998 90 123 45 67\n✈️ Telegram: @KY9N37YR");
+    }
+  } catch(e) {
+    hideTyping();
+    addBot("Internet ulanishda muammo bor. Iltimos quyidagilar orqali bog'laning:\n📞 +998 90 123 45 67\n✈️ @KY9N37YR");
+  }
+  aiWorking = false;
+  document.getElementById('aiSendBtn').disabled = false;
+  document.getElementById('aiInput').focus();
+}
+ 
+function sendQuick(text) { document.getElementById('aiInput').value = text; sendMsg(); }
+function handleKey(e) { if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();} }
+function autoResize(el) { el.style.height='auto'; el.style.height=Math.min(el.scrollHeight,100)+'px'; }
+ 
+// ==============================
+// INIT
+// ==============================
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => document.getElementById('loader').classList.add('hide'), 1200);
+  renderProducts('all');
+  renderFilterBar();
+  renderCatGrid();
+  applySettings();
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  const so = new IntersectionObserver(entries => entries.forEach(e => {
+    if(e.isIntersecting){const n=e.target.querySelector('[data-count]');if(n&&!n.dataset.a){n.dataset.a='1';animateCounter(n,parseInt(n.dataset.count));}}
+  }),{threshold:.3});
+  document.querySelectorAll('.stat-card').forEach(el => so.observe(el));
+});
+</script>
+</body>
+</html>
